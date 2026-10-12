@@ -84,4 +84,3 @@ btnservicios.forEach((boton) => {
         window.open(url, "_blank", "noopener,noreferrer");
     });
 });
-

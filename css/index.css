@@ -1,4 +1,5 @@
 * {
+-webkit-tap-highlight-color: transparent;
     margin: 0;
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -19,6 +20,7 @@
     );
     box-shadow: 0 0 10px #0340da;
 }
+
 
 /* Ocultar scrollbar sin desactivar el desplazamiento */
 html {
@@ -150,6 +152,7 @@ nav a:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
+    align-items: center;
     margin: auto;
     padding: 40px;
     gap: 20px;
@@ -162,8 +165,8 @@ nav a:hover {
     justify-content: stretch;
     gap: 10px;
     width: 200px;
-    height: 180px;
-    margin-top: auto;
+    height: 200px;
+    margin: auto;
     border: solid 2px blue;
     border-radius: 20px;
 }
@@ -220,12 +223,13 @@ nav a:hover {
     align-items: center;
     gap: 10px;
     width: 200px;
-    border: solid 2px rgb(244, 244, 248);
+    border: solid 2px rgb(3, 60, 218);
     border-radius: 20px;
 }
 
 .item_proyectos h2 {
     text-align: center;
+    font-size: 18px;
 }
 
 .img_proyecto {
@@ -324,7 +328,7 @@ nav a:hover {
 }
 
 .faq-item {
-    border: 1px solid #ff1a1a;
+    border: 1px solid rgb(3, 60, 218);
     border-radius: 8px;
     overflow: hidden;
     background-color: rgba(255, 0, 0, 0.03);
@@ -351,11 +355,11 @@ nav a:hover {
 }
 
 .faq-pregunta:hover {
-    background-color: rgba(255, 0, 0, 0.10);
+    background-color: rgb(3, 60, 218);
 }
 
 .faq-pregunta span {
-    color: #ff1313;
+    color:rgb(3, 60, 218);
     font-size: 25px;
     transition: 0.3s;
 }
@@ -781,5 +785,52 @@ nav a:hover {
     .hero {
         height: 230px;
         background-position: center;
+    }
+}
+
+
+#btn-arriba {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0340da, #00bfff);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+#btn-arriba.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-arriba:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 22px rgba(0, 191, 255, 0.7);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 600px) {
+    #btn-arriba {
+        width: 43px;
+        height: 43px;
+        bottom: 18px;
+        right: 18px;
+        font-size: 24px;
     }
 }
