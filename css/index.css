@@ -789,36 +789,47 @@ nav a:hover {
 }
 
 
+/* BOTÓN VOLVER ARRIBA */
 #btn-arriba {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 50px;
-    height: 50px;
+    position: fixed !important;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99999;
+
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border: none;
     border-radius: 50%;
     background: linear-gradient(135deg, #0340da, #00bfff);
     color: white;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 26px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px);
-    transition: all 0.3s ease;
-    z-index: 9999;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #btn-arriba.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    pointer-events: auto;
 }
 
-#btn-arriba:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 22px rgba(0, 191, 255, 0.7);
+@media (max-width: 600px) {
+    #btn-arriba {
+        position: fixed !important;
+        right: 15px;
+        bottom: 15px;
+    }
 }
 
 html {
@@ -841,14 +852,17 @@ body {
     animation: aparecerPagina 0.5s ease both;
 }
 
+body {
+    animation: aparecerPagina 0.5s ease;
+}
+
 @keyframes aparecerPagina {
     from {
         opacity: 0;
-        transform: translateY(8px);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 

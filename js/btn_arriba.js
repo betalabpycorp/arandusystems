@@ -1,20 +1,27 @@
-/*boton arriba */
+document.addEventListener("DOMContentLoaded", () => {
+    const btnArriba = document.getElementById("btn-arriba");
 
-const btnArriba = document.getElementById("btn-arriba");
+    if (!btnArriba) return;
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        btnArriba.classList.add("visible");
-    } else {
-        btnArriba.classList.remove("visible");
-    }
-});
+    const controlarBoton = () => {
+        const scrollActual = window.scrollY ||
+            document.documentElement.scrollTop;
 
-btnArriba.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+        btnArriba.classList.toggle("visible", scrollActual > 300);
+    };
+
+    window.addEventListener("scroll", controlarBoton, {
+        passive: true
     });
+
+    btnArriba.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    controlarBoton();
 });
 
 /*animar */
