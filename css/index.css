@@ -834,3 +834,56 @@ html {
         font-size: 24px;
     }
 }
+
+/*animaciones*/
+/* Transición de entrada */
+body {
+    animation: aparecerPagina 0.5s ease both;
+}
+
+@keyframes aparecerPagina {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respeta la preferencia de movimiento del usuario */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/*animar elementos*/
+/* Elementos que se animan al aparecer */
+.animar {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animar,
+    .animar.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
